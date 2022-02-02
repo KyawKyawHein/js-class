@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Document</title>
+    <style>
+        .list-item{
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do List</h1>
+
+    <div>
+        <div>
+            <input type="text" id="inputText">      <button id="btn-add" onclick="addText()">Add</button>
+            <ul id="textList"></ul>
+        </div>
+    </div>
+    <script>
+         let text = document.getElementById("inputText");
+         let textList = document.getElementById("textList");
+         let number = 1;
+         let minTextLength = 3;
+
+        function addText(){
+                let toShow = showText(text.value);
+                if(toShow){
+                    listItem(toShow);
+                    console.log(`Added the value "${text.value}"`);
+                    text.value = "";
+                }   
+        }
+
+        function listItem(something){           
+                textList.innerHTML +=`
+                <li id="list${number}" class="list-item animate__animated animate__fadeInDown">
+                    <button id="btn-del${number}" onclick="deleteText(${number})">Delete</button>
+                    <button id="btn-edit${number}" onclick="editText(${number})">Edit</button>
+                    <span id="Text${number}">${something}</span>
+                </li>`;
+                number++;
+        }
+
+        // function listItem(something){
+
+        //     let li = document.createElement("li");
+        //     let content = document.createTextNode(something);
+        //     li.appendChild(content);
+        //     li.classList = "animate__animated animate__fadeInDown"
+        //     textList.appendChild(li);
+        //     let button = document.createElement("button");
+        //     let delete-text = document.createTextNode("Delete");
+        // }
+
+        function deleteText(num){
+            let current  = document.getElementById(`list${num}`);
+            let currentText = document.getElementById(`Text${num}`).innerHTML;
+            let deleteConfirm = confirm(`Do you want to delete ${currentText}?`);
+
+            if(deleteConfirm){
+                textList.removeChild(current);
+            }else{
+                alert("Delete Cancelled...");
+            }
+        }
+
+        function showText(totalText){
+            if(totalText.length >= minTextLength){
+                return totalText;
+            }else{
+                alert("Please Enter Above 3 digits.");
+                text.value = "";    
+                return false;
+            }
+        }
+
+        function editText(listNum){
+            let currentText = document.getElementById(`Text${listNum}`);
+            let newText = prompt("Add a new value :",currentText.innerHTML);
+
+            if(newText){
+                currentText.innerHTML = newText;
+            }
+        }
+    </script>
+</body>
+</html>

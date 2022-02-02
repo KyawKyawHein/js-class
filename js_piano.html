@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="saveMemory()">Save</button><br>
+
+    <button onclick="aa('C4')">C4</button>
+    <button onclick="aa('C5')">C5</button>
+    <button onclick="aa('C6')">C6</button>
+    <button onclick="aa('G3')">G3</button>
+    <button onclick="aa('G4')">G4</button>
+    <button onclick="aa('G5')">G5</button>
+
+    <ul id="list">
+    </ul>
+
+
+    <script>
+        let itemList = document.getElementById("list");
+        let input = document.getElementById("input");
+        let memory = [];
+        function aa(x){
+            let audio = new Audio(`/SWD/piano sound/${x}.wav`);
+            audio.play();
+            input.value += x + " ";
+        }
+
+        let m = ['C4','C5','C6'];
+        function RunMemory(arr,delay=1000){
+            let x=delay;
+            arr.map(function(el,index){
+                setTimeout(aa,x,el);
+                x+=delay;
+            });
+        }
+
+        function saveMemory(){
+            let cords = input.value;
+            memory.push(cords);
+            input.value = "";
+            list.innerHTML = "";
+            memory.map(function(el,index){
+                list.innerHTML += `<li>${el} <button onclick="rePlay(${index})">Replay</buttton></li>`;
+            });
+        }
+
+        // function showItem(x){
+        //     itemList.innerHTML +=`<li>${x} <button>Replay</button</li>`;
+        // }
+
+        function rePlay(x){
+            input.value = "";
+            let current = memory[x].split(" ");
+            current.pop();
+            console.log(current);
+            RunMemory(current);
+        }
+
+        document.addEventListener("keyup",function(e){
+            console.log(e.keyCode);
+            let code = e.keyCode;
+            if(code == 65){
+                aa('C4');
+            }else if(code == 83){
+                aa('C5');
+            }else if(code == 68){
+                aa('C6');
+            }else if(code == 70){
+                aa('G3');
+            }else if(code == 74){
+                aa("G4");
+            }else if(code == 75){
+                aa("G5");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api-Testing</title>
+    <style>
+        table,tr,td{
+            border: 1px solid;
+            border-collapse: collapse;
+            padding: 10px 15px;
+        }
+        table{
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody id="tbody">  
+            
+            
+        </tbody>
+    </table>
+
+    <table>
+        <tbody id="tbody2">
+
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+                <td>No</td>
+                <td>author</td>
+                <td>title</td>
+                <td>publishedAt</td>
+        </thead>
+        <tbody id="tbody3">
+            
+        </tbody>
+    </table>
+
+
+    <script src="news_api.js"></script>
+    <script>
+        console.log(data);
+        let article = data.articles;
+        let tbody = document.getElementById("tbody");
+        for(let x in article){
+            console.log(x);
+            tbody.innerHTML +=`
+            <tr>
+                <td>${article[x].author}</td>
+                <td>${article[x].title}</td>
+            </tr>`
+        }
+
+        for(let x of article){
+            // console.log(x);
+            tbody2.innerHTML +=`
+            <tr>
+                <td>${x.author}</td>
+                <td>${x.title}</td>
+            </tr>`
+        }
+
+        article.map(function(el,index){
+            console.log(el);
+            tbody3.innerHTML += `
+                <tr>
+                    <td>${index+1}</td>
+                    <td>${el.author}</td>
+                    <td>${el.title}</td>
+                    <td>${el.publishedAt}</td>
+                </tr>`
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+</head>
+<body>
+    <h1>To Do App</h1>
+    <div>
+    <div class="input">
+        <input type="text" id="inputText" placeholder="Add your work">     <button onclick="addText()" class="btn btn-add" id="addText">Add</button>
+    </div>
+
+    <ul id="listData">
+        
+    </ul>
+</div>
+
+    <script>
+        let inputText = document.getElementById("inputText");
+        let listData = document.getElementById("listData");
+        let minTextLength = 3;
+        let i = 1;
+
+        function showText(text) {
+            listData.innerHTML +=`
+            <li class="list-item" id="list${i}">
+            <button class="btn del-btn" onclick="deleteText(${i})">Delete</button>
+            <button class="btn edit-btn" onclick="editText(${i})">Edit</button>
+            <span id="listText${i}">${text}</span>
+        </li> `; 
+        i++; 
+        }
+
+        function addText() {
+            let textValue = click(inputText.value);
+            if(textValue){
+                showText(textValue);
+                inputText.value="";
+            }
+        }
+
+        function click(x) {
+            if(x){
+                if(x.length >= minTextLength){
+                    return x;
+                }else{
+                    alert("Minium text length is 3.");
+                    return false;}
+            }else{
+                alert("Please enter text!!");
+                return false;
+            }
+        }
+
+        //delete text
+        function deleteText(listId) {
+              
+               let current = document.getElementById(`list${listId}`);
+               let currentText = document.getElementById(`listText${listId}`).innerHTML;
+               let deleteConfirm = confirm(`Are U Sure To Delete List '${currentText}'`);
+
+               if(deleteConfirm){
+                    listData.removeChild(current);
+               }else{
+                   console.log("Delete cancelled");
+               }
+        }
+
+        //edit text
+        function editText(listId) {
+            let current = document.getElementById(`listText${listId}`);
+            let newText = prompt("Say something!!",current.innerHTML);
+           
+            if(click(newText)){
+                current.innerHTML = newText;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

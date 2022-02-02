@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <h1>Loop lesson 2</h1>
+    <p>Object ka ny loop pat</p>
+    <ol>
+    </ol>
+<body>
+    <script>
+    let obj = {
+        //property
+        name : "Kyaw Kyw hein",
+        age : 18,
+        job : "Developer",
+        status : false,
+
+        //method
+        learn : function () {
+            console.log(`${this.name} learn Web Design.`)
+        }
+    };
+
+    for(x in obj){
+        document.querySelector("ol").innerHTML += `<li>${x}-${obj[x]}</li>`;
+    }
+</script>
+</body>
+</html>

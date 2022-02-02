@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tutorial</title>
+</head>
+<body>
+    <h2>JavaScript Object, Property and Methods</h2>
+    <script>
+        //object
+        let mySelf={
+            //properties
+            name:"kyaw kyaw hein",
+            age:18,
+            skill:"software development", 
+
+            //method = variable htl mr function kaw tone tr ko method lox kaw
+            //function showAll() nae same pyit but function ma hoke tae a twt property lo : nae twr
+            /*showAll : function(){
+                return `I'm ${this.name} and ${this.age} years old, work as ${this.skill} in Yangon`;
+            }, */
+
+            showAll : function(){
+                return `I'm ${this.name} and ${this.getBdYear(this.age)} years old, work as ${this.skill} in Yangon`;
+            },
+
+            getBdYear : function(age){
+                return 2021-age;
+            }
+        }
+    </script>
+</body>
+</html>

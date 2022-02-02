@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color:blue;
+        }
+        .calc{
+            width: 400px;
+            margin: 100px auto;
+        }
+        .display{
+            
+            text-align: right;
+            font-size: 60px;
+            padding :20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <div class="display">0</div>
+        <div class="keypad">
+            <table class="keypad-table">
+                <tr>
+                    <td>
+                        <div class="key">AC</div>
+                    </td>
+                    <td>
+                        <div class="key">C</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('%')">%</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('/')">&divide;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="key" onclick="showDisplay(7)">7</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(8)">8</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(9)">9</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('*')">&times;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="key" onclick="showDisplay(4)">4</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(5)">5</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(6)">6</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('-')">&minus;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="key" onclick="showDisplay(1)">1</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(2)">2</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay(3)">3</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('+')">&plus;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="key" onclick="showDisplay(0)">0</div>
+                    </td>
+                    <td>
+                        <div class="key" onclick="showDisplay('.')">.</div>
+                    </td>
+                    <td>
+                        <div class="key">=</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let displayBox = document.querySelector(".display");
+        let operator = ["+","-","*","/","%","."]
+        
+        function showDisplay(x){
+            let current = displayBox.innerHTML;
+            let lastIndex = current[current.length-1];
+            if(displayBox.innerHTML = 0){
+                return displayBox.innerHTML=x;
+            }else if(operator.includes(x) && operator.includes(lastIndex)){
+                    console.log(current.substring(0,current.length-1)+x);
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

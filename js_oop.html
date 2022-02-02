@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let obj = {
+            name : "Kyaw Kyaw",
+            age : 18,
+            introduction : function(){
+                return `My name is ${this.name} and ${this.age} years old.`
+            }
+        };
+
+        //class expression
+        class Me{
+            name = "Kyaw kyaw";
+            age = 18;
+            //access modifier
+            #gf = "olivia rodrigo"; //private property
+
+
+            //custom method
+            showOf(){
+                return `${this.#gf} is my girlfriend.`;
+            }
+
+            introduction(){
+                return `My name is ${this.name} and ${this.age} years old.`
+            }
+        }
+
+        class Reg{
+            //magic method
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+                console.log("this is constructor.");
+            }
+
+            //prototype method
+            get showBdy(){
+            let currentYear = new Date().getFullYear();
+            return currentYear-this.age;
+            }
+
+
+            //static method
+            static test(){
+                return `this is static funtion.`;
+            }
+        }
+
+        
+
+    </script>
+</body>
+</html>

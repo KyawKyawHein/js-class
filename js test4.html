@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Tutorial</h2>
+
+    <script>
+        function showInput(input){
+            return `You was born in ${input}`;
+        }
+
+        function myFunc(age=18){
+            let CurrentYear = 2021;
+            let BirthYear = CurrentYear - age;
+            //return CurrentYear-age;
+            //return `You was born in ${CurrentYear-age}`;
+            return showInput(BirthYear);
+        }
+    </script>
+</body>
+</html>

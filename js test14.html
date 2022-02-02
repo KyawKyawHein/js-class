@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>For loop lesson</h1>
+    <p>Fruit List</p>
+    <ol>
+    </ol>
+    <script>
+        let arr = ["apple","orange","mango","banana","grape"];
+
+        /* for(let i=0;i<arr.length;i++){
+            document.querySelector("ol").innerHTML += `<li>${arr[i]}</li>`;
+          }     */
+
+
+        // for in
+        // x bl ka sa mal, bl mr sone ml ko tay chr ti
+       /* for(x in arr){
+            document.querySelector("ol").innerHTML += `<li>${arr[x]} for in</li>`;
+        }   */
+
+
+        // for of
+        // x ka arr a kan twe ko ko srr pyu tl
+        /*for(x of arr){
+            document.querySelector("ol").innerHTML += `<li>${x} for of</li>`;
+        }   */
+
+        //map function ka array only tone lox ya
+        //el ka value , index ka index
+       /* arr.map(function (el,index){
+            document.querySelector("ol").innerHTML += `<li>${el}-${index}</li>`
+        })  */
+
+
+
+        function showHello(max) {
+            for(i=1;i<=max;i++){
+                console.log(`${i} Hello World`);
+            }
+        }
+    </script>
+</body>
+</html>

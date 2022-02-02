@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>js test17</h1>
+      <button>click</button>
+    <script>
+       /* function myFunc() {
+            for(let i=1;i<=10;i++){
+                if(i==5){continue};
+                //if(i==5){break};
+            console.log(`${i}.Hello World`);
+        }    
+        }   */
+
+        //function and arrowfunction
+
+    /*  function one(){
+            console.log("This is one.");
+        }   */
+        let one = () => console.log("This is one(arrow function)")
+        
+    /*  function two(){
+            let x = "x variable";
+            console.log(x);
+        }   */
+        let two = () => {let x = "x variable"; console.log(x);}
+
+    /*  function three(x){
+            console.log(x);
+        }    */
+        let three = (x) => console.log(x);
+
+    /*  function four(x,y=10){
+            console.log({x,y});
+        }   */
+        let four = (x,y=10) =>console.log({x,y});
+
+
+    /*  document.querySelector("button").onclick = function(){console.log("this is five.")}; */
+        //Another click type
+    /*  document.querySelector("button").addEventListener("click",function(){console.log("This is six.")}); */
+        document.querySelector("button").addEventListener("click",()=> console.log("This is five(arrow function)"));
+
+
+        //IIFE  ()() 2 ku htae ya
+    /*    (function() {
+            console.log("This is automatic show.");
+        })();   */
+        (()=>console.log("This is automatic show with arrow function."))();
+
+        let obj ={
+            name : "Kyaw Kyaw Hein",
+            teach : function(){console.log(`${this.name} can teach Web Development.`);},
+         //   learn : () => console.log(`${this.name} can teach Web Design.`),  arrow function nae so ${this.name} htae yin br ma ma pw,window ka hr ko u tr mox lox
+            learn : () => console.log(`${obj.name} can learn Web Design.`),
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

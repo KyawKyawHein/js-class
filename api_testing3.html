@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let fruits = ["apple","orange","ranbutan","grape","pineapple","gooseberry"];
+        let numbers = [12,22,33,11,32,34342,52,1,2,14];
+        let apiDate = [
+            {id:1,name:"kyaw kyaw",age:14,room:"a",donate:3200},
+            {id:2,name:"ag ag",age:32,room:"b",donate:3900},
+            {id:3,name:"mg mya",age:55,room:"a",donate:2000},
+            {id:4,name:"ko ko",age:11,room:"t",donate:100},
+            {id:5,name:"aung thu",age:12,room:"a",donate:600},
+        ]
+
+        // let arr =apiDate.map(function(el,index){
+        //     // console.log(el);
+        //     // return el;
+        //     return {name : el.name , room : el.room};
+        // })
+        let arr2 = apiDate.map(el=>el.donate).reduce((x,y)=>x+y);
+        console.log(arr2);
+    </script>
+</body>
+</html>
